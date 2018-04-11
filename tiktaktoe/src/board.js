@@ -4,12 +4,16 @@ import Square from './square';
 class Board extends Component {
   constructor(props) {
     super(props)
-    this.state = {boardArray:[]}
+    this.state = {
+      boardArray:[0,0,0,
+                  0,0,0,
+                  0,0,0]
+    }
   }
   renderSquare(i) {
-    this.setState({boardArray[i]: i})
-    return <Square />
+    return <Square content={i} />
   }
+
   render() {
     return (
       <div>

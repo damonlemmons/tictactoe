@@ -6,19 +6,20 @@ class Square extends Component {
     super(props)
     this.state = {
       clicked:"no",
-      squareNum:""
+      value: null
     }
-}
+  }
 
-    handleClick(event){
+  handleClick(event){
     event.preventDefault()
     this.setState({clicked:"yes"})
   }
 
   render() {
+
     return(
       <button className = "button" onClick={this.handleClick.bind(this)}>
-        {this.state.clicked}
+        {this.props.content + " " + this.state.clicked}
       </button>
     )
   }
