@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import Square from './square';
 
 class Board extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {boardArray:[]}
+  }
   renderSquare(i) {
+    this.setState({boardArray[i]: i})
     return <Square />
   }
   render() {

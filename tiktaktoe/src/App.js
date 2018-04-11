@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Results from './results';
-import Square from './square';
+
 import Board from './board';
 
 

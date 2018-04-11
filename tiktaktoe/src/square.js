@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
+import board from './board'
 
 class Square extends Component {
-  handleClick(event){
+  constructor(props) {
+    super(props)
+    this.state = {
+      clicked:"no",
+      squareNum:""
+    }
+}
+
+    handleClick(event){
     event.preventDefault()
+    this.setState({clicked:"yes"})
   }
 
   render() {
     return(
       <button className = "button" onClick={this.handleClick.bind(this)}>
-        <input type='button' value='' />
+        {this.state.clicked}
       </button>
     )
   }
