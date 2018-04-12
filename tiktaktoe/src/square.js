@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
-import board from './board'
 
 class Square extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      clicked:"no",
-      value: null
+
     }
   }
 
-  handleClick(event){
-    event.preventDefault()
-    this.setState({clicked:"yes"})
-  }
 
   render() {
-
     return(
-      <button className = "button" onClick={this.handleClick.bind(this)}>
-        {this.props.content + " " + this.state.clicked}
-      </button>
+      <div  className = "Square" onClick={this.props.onClick}>{this.props.content}
+      </div>
     )
   }
 }
@@ -28,17 +20,17 @@ class Square extends Component {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default Square
+
+/*
+import React, {Component} from 'react'
+
+class Square extends Component {
+	render() {
+		return(
+			<div>{this.props.content}</div>
+		)
+	}
+}
+
+export default Square  */
