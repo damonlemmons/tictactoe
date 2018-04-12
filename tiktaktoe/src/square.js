@@ -4,16 +4,17 @@ class Square extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      squareNum: 0
     }
   }
 
 
   render() {
     return(
-      <div  className = "Square" onClick={this.props.onClick}>{this.props.content}
+      <div  className="Square" onClick={this.props.onClick}> {this.props.content}
       </div>
     )
+
   }
 }
 

@@ -6,25 +6,29 @@ class Board extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      board: [0,0,0,0,0,0,0,0,0],
+      board: ["", "", "", "", "", "", "", "", ""],
 			count: 0
     }
   }
 
-	handleClick(e){
-		let index = e.target.innerHTML
+
+	handleClick(element, index){
+		let squareNum = index
 		let newCount = this.state.count	+ 1
 		let newBoard = this.state.board
 		if(newCount%2!==0 ){
-				newBoard[index] = 1
+				newBoard[index] = "x"
+				element = "X"
 		} else {
-				newBoard[index] = 2
+				newBoard[index] = "o"
+			element = "O"
 		}
-		this.setState({count: newCount, board: newBoard})		// update count attribute to 1
-		console.log("index: " + index)
+		this.setState({count: newCount, board: newBoard})
+		console.log("index: "+ index)
 		console.log("count " + this.state.count)
 		console.log("newBoard: "+ newBoard)
 		console.log("board: " + this.state.board)
+
 
 		//console.log(e.target);
 		// TODO: handleClick should update state for the square that was clicked and advance the turn to the next player
@@ -36,10 +40,11 @@ class Board extends Component {
 		//console.log(this.state.board)
 		let squares = thisBoard.map((square,index)=>{
     	return (
-					<Square content={index} onClick={this.handleClick.bind(this)} />
+
+					<Square content={this.state.board[index]} onClick={this.handleClick.bind(this,square,index)}/>
 				)
-				 //console.log(squares)
 			})
+
 			return(
 						<div id="Board">
 							{ squares }
