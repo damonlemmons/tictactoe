@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Square from './square';
 import './Board.css';
+import './results'
 
 class Board extends Component {
   constructor(props) {
@@ -16,27 +17,72 @@ class Board extends Component {
 		let squareNum = index
 		let newCount = this.state.count	+ 1
 		let newBoard = this.state.board
+
 		if(newCount%2!==0 ){
+			if (newBoard[index] ==""){
 				newBoard[index] = "x"
 				element = "X"
+				this.setState({count: newCount, board: newBoard})
+			} else {
+				alert ("that square has been played you moron!!!!!")
+			}
 		} else {
+				if (newBoard[index] ==""){
 				newBoard[index] = "o"
-			element = "O"
+				element = "O"
+				this.setState({count: newCount, board: newBoard})
+				} else {
+				alert ("that square has been played you moron!!!!!")
+			}
 		}
-		this.setState({count: newCount, board: newBoard})
-		console.log("index: "+ index)
-		console.log("count " + this.state.count)
-		console.log("newBoard: "+ newBoard)
-		console.log("board: " + this.state.board)
 
+
+	}
 
 		//console.log(e.target);
 		// TODO: handleClick should update state for the square that was clicked and advance the turn to the next player
-	}
 
 
   render() {
+		var winner
+		var crappyCounter = this.state.count
+		console.log(crappyCounter)
+
+
+		if (crappyCounter <= 9 && crappyCounter >= 3){
+			calcWinner(this.state.board)
+				if( winner === "x" || winner ==="o"){
+					alert( "The winner is: " + winner)
+					this.state
+				}
+		}
+
+		function calcWinner(squares) {
+		 const lines = [
+		 	[0, 1, 2],
+		 	[3, 4, 5],
+		 	[6, 7, 8],
+		 	[0, 3, 6],
+		 	[1, 4, 7],
+		 	[2, 5, 8],
+		 	[0, 4, 8],
+		 	[2, 4, 6],
+		 ];
+		 for (let i = 0; i < lines.length; i++) {
+		 	let [a, b, c] = lines[i];
+		 	if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+				console.log(squares[a])
+				winner = squares[a]
+				return winner;
+		 	}
+		 }
+		 return null;
+		 }
+
+
+
 		let thisBoard = this.state.board
+		console.log(thisBoard)
 		//console.log(this.state.board)
 		let squares = thisBoard.map((square,index)=>{
     	return (
@@ -58,6 +104,10 @@ class Board extends Component {
 }
 export default Board;
 
+
+
+
+/*
 
 /*
 import React, {Component} from 'react'

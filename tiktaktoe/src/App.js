@@ -5,12 +5,11 @@ import Board from './board';
 
 
 
+
 class App extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      result: 'who won?'
-    }
+
   }
   render() {
     return (
@@ -18,9 +17,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Tik Tak Toe</h1>
         </header>
-        <Results result={this.state.result}/>
         <br></br>
-        <Board />
+        <Board whoWon/>
 
       </div>
 
