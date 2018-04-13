@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 
+
+//blueprint for one square - board.js creates nine of these squares
 class Square extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      squareNum: 0
-    }
-  }
 
 
   render() {
@@ -22,16 +18,3 @@ class Square extends Component {
 
 
 export default Square
-
-/*
-import React, {Component} from 'react'
-
-class Square extends Component {
-	render() {
-		return(
-			<div>{this.props.content}</div>
-		)
-	}
-}
-
-export default Square  */
